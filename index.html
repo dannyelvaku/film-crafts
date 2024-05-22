@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Crafts - </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="photos/Untitled-1-Recovered.jpg">
+</head>
+<body>
+
+<header>
+    <img src="photos/2 logo.jpg" height="100" alt="">
+     <big>
+        <h1>Film Crafts</h1>
+    </big>
+    <p>Your vision, our craft</p>
+</header>
+
+<div class="links">
+    <a href="https://www.youtube.com/@Film_crafts.official" target="_blank">YouTube</a>
+    <a href="https://www.tiktok.com/@filmcrafts.official?_t=8mVcrbZCQD8&_r=1" target="_blank">TikTok</a>
+    <a href="https://www.instagram.com/yourusername" target="_blank">Instagram</a>
+</div>
+
+<div class="container">
+    <p>Welcome to Film Crafts, where we bring your stories to life with our exceptional film-making skills. Buy your tickets now to experience our latest productions!</p>
+  
+    
+  
+<div class="gallery">
+            <img src="photos/DANN.jpg" height="600" alt="Image 1" class="gallery-image" onclick="openModal('image1.jpg')">
+            <img src="photos/CASTING.jpg" height="600" alt="Image 2" class="gallery-image" onclick="openModal('image2.jpg')">
+            <!-- Add more images as needed -->
+</div>
+    
+        <div id="modal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img src="" alt="Modal Image" id="modal-image">
+        </div>
+    
+        <script src="script.js"></script>
+
+    
+      
+</div>
+
+    <h2>Buy Tickets</h2>
+    <form id="ticket-form" action="/submit-payment" method="POST">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="tickets">Number of Tickets:</label>
+            <input type="number" id="tickets" name="tickets" min="1" max="10" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="">Select a payment method</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="mpesa">M-Pesa</option>
+                <option value="paypal">PayPal</option>
+            </select>
+        </div>
+        
+        <div id="credit-card-info" class="payment-info">
+            <div class="form-group">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" pattern="\d{16}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="month" id="expiry-date" name="expiry-date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" pattern="\d{3}" required>
+            </div>
+        </div>
+        
+        <div id="mpesa-info" class="payment-info">
+            <div class="form-group">
+                <label for="mpesa-number">M-Pesa Phone Number:</label>
+                <input type="text" id="mpesa-number" name="mpesa-number" pattern="\d{10}" required>
+            </div>
+        </div>
+        
+        <div id="paypal-info" class="payment-info">
+            <p>You will be redirected to PayPal to complete your payment.</p>
+        </div>
+        
+        <button type="submit">Buy Now</button>
+    </form>
+</div>
+
+<footer id="footer">
+    <p>&copy; 2024 Film Crafts. All rights reserved.</p>
+    <p>Contact us:</p>
+    <p>Email: short.filma.2023@GMAIL.COM</p>
+    <p>Phone: +254757868203</p>
+    <p>WhatsApp: +254757868203</p>
+</footer>
+
+<script>
+    document.getElementById('payment-method').addEventListener('change', function () {
+        var creditCardInfo = document.getElementById('credit-card-info');
+        var mpesaInfo = document.getElementById('mpesa-info');
+        var paypalInfo = document.getElementById('paypal-info');
+
+        creditCardInfo.style.display = 'none';
+        mpesaInfo.style.display = 'none';
+        paypalInfo.style.display = 'none';
+
+        if (this.value === 'credit-card') {
+            creditCardInfo.style.display = 'block';
+        } else if (this.value === 'mpesa') {
+            mpesaInfo.style.display = 'block';
+        } else if (this.value === 'paypal') {
+            paypalInfo.style.display = 'block';
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
